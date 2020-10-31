@@ -7,40 +7,39 @@
 
 #include <thread>
 #include <mutex>
+#include <chrono>
 
-unsigned int garlic_count = 0;
-unsigned int potato_count = 0;
+std::mutex pencil;
+unsigned int items_on_notepad = 0;
 
-std::recursive_mutex pencil;
-
-void add_garlic() {
-	pencil.lock();
-	garlic_count++;
-	pencil.unlock();
-}
-
-void add_potato() {
-	pencil.lock();
-	potato_count++;
-	add_garlic();	// Now this would work since it is now recursive_mutex.
-	pencil.unlock();
-}
-
-void shopper() {
-	
-	for(int i = 0; i < 10000; ++i) {
-		add_garlic();
-		add_potato();
+void shopper(const char* name) {
+	int items_to_add = 0;
+	while (items_on_notepad <= 20) {
+		if(items_to_add && pencil.try_lock()) {
+			items_on_notepad += items_to_add;
+			printf("%s added %u item(s) to notepad.\n", name, items_to_add);
+			items_to_add = 0;
+			std::this_thread::sleep_for(std::chrono::milliseconds(300)); //time writing
+			pencil.unlock();
+		} else {
+			std::this_thread::sleep_for(std::chrono::milliseconds(100)); //time searching
+			items_to_add++;
+			printf("%s found something else to buy.\n", name);
+			
+		}
 	}
 }
 
 int main() {
-	std::thread t1(shopper);
-	std::thread t2(shopper);
+	auto start = std::chrono::steady_clock::now();
+	
+	std::thread t1(shopper, "Bob");
+	std::thread t2(shopper, "Alice");
 	
 	t1.join();
 	t2.join();
 	
-	printf("We should buy %d garlic.\n", garlic_count);
-	printf("We should buy %d potatoes.\n", potato_count);
+	auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now()-start).count();
+	
+	printf("Elapsed time: %.2f seconds\n", elapsed_time/1000.0);
 }
