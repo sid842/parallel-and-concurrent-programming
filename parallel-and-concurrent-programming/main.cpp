@@ -13,17 +13,18 @@
 #include <mutex>
 #include <chrono>
 #include <array>
+#include <shared_mutex>
 
 char WEEKDAYS[7][10] = {"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
 int today = 0;
-std::mutex marker;
+std::shared_timed_mutex marker; //shared_mutex not working for some reason, maybe some compiler issue.
 
 void calender_reader(const int id) {
 	for(int i = 0; i < 7; ++i) {
-		marker.lock();
+		marker.lock_shared();
 		printf("Reader %d sees today as %s.\n", id, WEEKDAYS[today]);
-		std::this_thread::sleep_for(std::chrono::milliseconds(100));
-		marker.unlock();
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		marker.unlock_shared();
 	}
 }
 
