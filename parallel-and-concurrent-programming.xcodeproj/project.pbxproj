@@ -10,6 +10,7 @@
 		DAE1F017254D2DC800E547C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F016254D2DC800E547C9 /* main.cpp */; };
 		DAE1F020254D3F8100E547C9 /* main-threads-and-processes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */; };
 		DAE1F024254D474900E547C9 /* main-mutual-exclusion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F023254D474900E547C9 /* main-mutual-exclusion.cpp */; };
+		DAE1F027254D4EA600E547C9 /* main-recursive-and-try-locks.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F026254D4EA600E547C9 /* main-recursive-and-try-locks.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +31,7 @@
 		DAE1F01E254D3AFE00E547C9 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 		DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-threads-and-processes.cpp"; sourceTree = "<group>"; };
 		DAE1F023254D474900E547C9 /* main-mutual-exclusion.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-mutual-exclusion.cpp"; sourceTree = "<group>"; };
+		DAE1F026254D4EA600E547C9 /* main-recursive-and-try-locks.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-recursive-and-try-locks.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DAE1F01E254D3AFE00E547C9 /* Notes.rtf */,
 				DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */,
 				DAE1F023254D474900E547C9 /* main-mutual-exclusion.cpp */,
+				DAE1F026254D4EA600E547C9 /* main-recursive-and-try-locks.cpp */,
 			);
 			path = "parallel-and-concurrent-programming";
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE1F027254D4EA600E547C9 /* main-recursive-and-try-locks.cpp in Sources */,
 				DAE1F024254D474900E547C9 /* main-mutual-exclusion.cpp in Sources */,
 				DAE1F020254D3F8100E547C9 /* main-threads-and-processes.cpp in Sources */,
 				DAE1F017254D2DC800E547C9 /* main.cpp in Sources */,
