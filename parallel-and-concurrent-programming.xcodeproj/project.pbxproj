@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA196D17254DD3A4000EDECA /* main-dining-philospher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DA196D16254DD3A4000EDECA /* main-dining-philospher.cpp */; };
 		DAE1F017254D2DC800E547C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F016254D2DC800E547C9 /* main.cpp */; };
 		DAE1F020254D3F8100E547C9 /* main-threads-and-processes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */; };
 		DAE1F024254D474900E547C9 /* main-mutual-exclusion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F023254D474900E547C9 /* main-mutual-exclusion.cpp */; };
@@ -26,6 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DA196D16254DD3A4000EDECA /* main-dining-philospher.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-dining-philospher.cpp"; sourceTree = "<group>"; };
 		DAE1F013254D2DC800E547C9 /* parallel-and-concurrent-programming */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "parallel-and-concurrent-programming"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE1F016254D2DC800E547C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DAE1F01E254D3AFE00E547C9 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */,
 				DAE1F023254D474900E547C9 /* main-mutual-exclusion.cpp */,
 				DAE1F026254D4EA600E547C9 /* main-recursive-and-try-locks.cpp */,
+				DA196D16254DD3A4000EDECA /* main-dining-philospher.cpp */,
 			);
 			path = "parallel-and-concurrent-programming";
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			files = (
 				DAE1F027254D4EA600E547C9 /* main-recursive-and-try-locks.cpp in Sources */,
 				DAE1F024254D474900E547C9 /* main-mutual-exclusion.cpp in Sources */,
+				DA196D17254DD3A4000EDECA /* main-dining-philospher.cpp in Sources */,
 				DAE1F020254D3F8100E547C9 /* main-threads-and-processes.cpp in Sources */,
 				DAE1F017254D2DC800E547C9 /* main.cpp in Sources */,
 			);
@@ -253,6 +257,7 @@
 		DAE1F01B254D2DC800E547C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VNS967C56;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -263,6 +268,7 @@
 		DAE1F01C254D2DC800E547C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VNS967C56;
 				ENABLE_HARDENED_RUNTIME = YES;
