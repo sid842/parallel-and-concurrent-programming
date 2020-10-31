@@ -7,19 +7,30 @@
 
 #include <thread>
 #include <mutex>
-#include <chrono>
-#include <atomic>
 
-//unsigned int count = 0;
-//std::mutex pencil;
+unsigned int garlic_count = 0;
+unsigned int potato_count = 0;
 
-//This construct can also help in synchronization.
-std::atomic<unsigned int> count{0};
+std::mutex pencil;
+
+void add_garlic() {
+	pencil.lock();
+	garlic_count++;
+	pencil.unlock();
+}
+
+void add_potato() {
+	pencil.lock();
+	potato_count++;
+	add_garlic();	// again lock on same mutex. Recursive lock, so DEADLOCK
+	pencil.unlock();
+}
 
 void shopper() {
 	
-	for(int i = 0; i < 5; ++i) {
-		count++; // Read->Modify->Write
+	for(int i = 0; i < 10000; ++i) {
+		add_garlic();
+		add_potato();
 	}
 }
 
@@ -30,5 +41,6 @@ int main() {
 	t1.join();
 	t2.join();
 	
-	printf("The current count is %d\n", count.load()); //.load
+	printf("We should buy %d garlic.\n", garlic_count);
+	printf("We should buy %d potatoes.\n", potato_count);
 }
