@@ -7,17 +7,21 @@
 
 #include <thread>
 #include <mutex>
+#include <chrono>
 
 unsigned int count = 0;
 std::mutex pencil;
 
 void shopper() {
-	pencil.lock();
-	//Critical section
-	for(int i = 0; i < 1000000; ++i)
+	
+	for(int i = 0; i < 5; ++i) {
+		printf("Shopper %d is thinking...\n", std::this_thread::get_id());
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		pencil.lock();
+		//Critical section
 		count++; // Read->Modify->Write
-		
-	pencil.unlock();
+		pencil.unlock();
+	}
 }
 
 int main() {
