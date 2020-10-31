@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DAE1F017254D2DC800E547C9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F016254D2DC800E547C9 /* main.cpp */; };
+		DAE1F020254D3F8100E547C9 /* main-threads-and-processes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +27,7 @@
 		DAE1F013254D2DC800E547C9 /* parallel-and-concurrent-programming */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "parallel-and-concurrent-programming"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE1F016254D2DC800E547C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DAE1F01E254D3AFE00E547C9 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
+		DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "main-threads-and-processes.cpp"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				DAE1F016254D2DC800E547C9 /* main.cpp */,
 				DAE1F01E254D3AFE00E547C9 /* Notes.rtf */,
+				DAE1F01F254D3F8100E547C9 /* main-threads-and-processes.cpp */,
 			);
 			path = "parallel-and-concurrent-programming";
 			sourceTree = "<group>";
@@ -120,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE1F020254D3F8100E547C9 /* main-threads-and-processes.cpp in Sources */,
 				DAE1F017254D2DC800E547C9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
