@@ -5,15 +5,19 @@
 //  Created by Siddharth Bhasin on 31/10/20.
 //
 
-//Race condition
-
 #include <thread>
+#include <mutex>
 
 unsigned int count = 0;
+std::mutex pencil;
 
 void shopper() {
+	pencil.lock();
+	//Critical section
 	for(int i = 0; i < 1000000; ++i)
 		count++; // Read->Modify->Write
+		
+	pencil.unlock();
 }
 
 int main() {

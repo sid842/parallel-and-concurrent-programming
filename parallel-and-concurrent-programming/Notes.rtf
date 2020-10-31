@@ -13,4 +13,9 @@ A hyperthreaded processor with 8 logical cores will usually provide
 \f1\b lower
 \f0\b0  performance compared to a regular processor with 8 physical cores.\
 \pard\pardeftab720\partightenfactor0
-\cf2 Hyperthreading takes advantage of unused parts of the processor, so if one thread is paused, or not using a certain resource, then the other thread may be able to use it. Under certain workloads that can create performance improvements, but it\'92s highly application dependent.}
+\cf2 Hyperthreading takes advantage of unused parts of the processor, so if one thread is paused, or not using a certain resource, then the other thread may be able to use it. Under certain workloads that can create performance improvements, but it\'92s highly application dependent.\
+\
+Mutex: Mutual Exclusion\
+Only one thread or process can have access to mutex\
+Acquiring a mutex(lock) is an atomic operation, cannot be interrupted\
+Once you have the lock, you can  enter the critical section. }
