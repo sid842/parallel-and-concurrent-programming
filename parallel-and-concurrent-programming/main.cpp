@@ -10,24 +10,25 @@
 
 bool chopping = true;
 
-void vegetable_chopper(const char* name) {
-	unsigned int vegetable_count = 0;
-	while(chopping) {
-		vegetable_count++;
+void kitchen_cleaner() {
+	while(true) {
+		printf("Bob cleaned the kitchen.\n");
+		std::this_thread::sleep_for(std::chrono::seconds(1));
 	}
-	
-	printf("%s chopped %u vegetables.\n", name, vegetable_count);
 }
 
 int main() {
-	std::thread bob(vegetable_chopper, "Bob");
-	std::thread alice(vegetable_chopper, "Alice");
+
+	std::thread bob(kitchen_cleaner);
+	//Bob now becomes a daemon thread
+	bob.detach();
 	
-	printf("Bob and Alice are chopping vegetables...\n");
+	for(int i = 0; i < 3; ++i) {
+		printf("Alice is cooking...\n");
+		std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+	}
 	
-	std::this_thread::sleep_for(std::chrono::seconds(1));
-	
-	chopping = false;
-	bob.join();
-	alice.join();
+	printf("Alice is done.\n");
 }
+
+//A daemon thread will be abruptly terminated when the main thread finishes. If that occurs during a write operation the file could be corrupted. So use daemon threads carefully.

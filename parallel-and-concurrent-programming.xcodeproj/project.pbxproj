@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		DAE1F013254D2DC800E547C9 /* parallel-and-concurrent-programming */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "parallel-and-concurrent-programming"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAE1F016254D2DC800E547C9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DAE1F01E254D3AFE00E547C9 /* Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Notes.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				DAE1F016254D2DC800E547C9 /* main.cpp */,
+				DAE1F01E254D3AFE00E547C9 /* Notes.rtf */,
 			);
 			path = "parallel-and-concurrent-programming";
 			sourceTree = "<group>";
