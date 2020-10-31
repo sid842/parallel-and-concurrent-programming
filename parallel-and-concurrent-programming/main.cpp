@@ -11,7 +11,7 @@
 unsigned int garlic_count = 0;
 unsigned int potato_count = 0;
 
-std::mutex pencil;
+std::recursive_mutex pencil;
 
 void add_garlic() {
 	pencil.lock();
@@ -22,7 +22,7 @@ void add_garlic() {
 void add_potato() {
 	pencil.lock();
 	potato_count++;
-	add_garlic();	// again lock on same mutex. Recursive lock, so DEADLOCK
+	add_garlic();	// Now this would work since it is now recursive_mutex.
 	pencil.unlock();
 }
 
