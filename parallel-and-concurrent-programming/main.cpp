@@ -8,19 +8,18 @@
 #include <thread>
 #include <mutex>
 #include <chrono>
+#include <atomic>
 
-unsigned int count = 0;
-std::mutex pencil;
+//unsigned int count = 0;
+//std::mutex pencil;
+
+//This construct can also help in synchronization.
+std::atomic<unsigned int> count{0};
 
 void shopper() {
 	
 	for(int i = 0; i < 5; ++i) {
-		printf("Shopper %d is thinking...\n", std::this_thread::get_id());
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
-		pencil.lock();
-		//Critical section
 		count++; // Read->Modify->Write
-		pencil.unlock();
 	}
 }
 
@@ -31,5 +30,5 @@ int main() {
 	t1.join();
 	t2.join();
 	
-	printf("The current count is %d\n", count);
+	printf("The current count is %d\n", count.load()); //.load
 }
