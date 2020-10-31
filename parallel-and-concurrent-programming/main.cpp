@@ -5,27 +5,29 @@
 //  Created by Siddharth Bhasin on 31/10/20.
 //
 
-/**
- * Threads that waste CPU cycles
- */
 #include <thread>
 #include <chrono>
-#include <unistd.h>
 
-// a simple function that wastes CPU cycles "forever"
-void cpu_waster() {
-    printf("CPU Waster Process ID: %d\n", getpid());
-    printf("CPU Waster Thread ID %d\n", std::this_thread::get_id());
-    while(true) continue;
+bool chopping = true;
+
+void vegetable_chopper(const char* name) {
+	unsigned int vegetable_count = 0;
+	while(chopping) {
+		vegetable_count++;
+	}
+	
+	printf("%s chopped %u vegetables.\n", name, vegetable_count);
 }
 
 int main() {
-    printf("Main Process ID: %d\n", getpid());
-    printf("Main Thread ID: %d\n", std::this_thread::get_id());
-    std::thread thread1(cpu_waster);
-    std::thread thread2(cpu_waster);
-
-    while(true) { // keep the main thread alive "forever"
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-    }
+	std::thread bob(vegetable_chopper, "Bob");
+	std::thread alice(vegetable_chopper, "Alice");
+	
+	printf("Bob and Alice are chopping vegetables...\n");
+	
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	
+	chopping = false;
+	bob.join();
+	alice.join();
 }
